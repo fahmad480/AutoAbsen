@@ -1,0 +1,64 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %} Campus Request {% endblock %}
+{% block titlev2 %} Campus Request {% endblock %}
+{% block row_content %}
+<!-- prettier-ignore -->
+<div class="row">
+    <div class="col-lg-12 col-xl-12">
+        <div class="card shadow mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="text-primary font-weight-bold m-0">Campus Request</h6>
+            </div>
+            <div class="card-body">
+                <p><b>Why u here?</b> aaa, i see, your campus not in the list right? haha &#x1F923;</p>
+                <p>Relax, how do I get my e-learning campus on <b>Tukang Absen</b>? it's ez, follow this step!</p>
+                <p><h4>First method</h4>
+                1. First, make sure your campus have elearning<br/>
+                2. Open your campus elearning website<br/>
+                3. Look carefully, is your campus elearning was made using Moodle or not<br/>
+                4. If not, press <b>ctrl + u</b> in your web browser while visiting your campus elearning website, or right click every where, and click <b>view page source</b><br/>
+                5. And find "<b>moodle</b>" word, use <b>ctrl + f</b> to make it faster<br/>
+                6. You find it? congratulation, you can join with us<br/>
+                7. You can't find it? i'm sorry little baby, you can't join with us<br/>
+                8. Done!
+                </p>
+                <p><h4>Second method</h4>
+                1. Access this web <a href="https://www.wappalyzer.com/" target="_blank">https://www.wappalyzer.com/</a><br/>
+                2. Fill the empty box with your campus elearning url, and press <b>enter</b><br/>
+                3. Scrool down, and find <b>Moodle</b> in <b>Technologies</b> section<br/>
+                4. If you find it,congratulation, you can join with us<br/>
+                5. Done
+                </p>
+                <p><h4>Next step</h4>
+                if your campus elearning website is using Moodle, send your campus elearning url to us, we will check it and add it to the list, by fill this form<br/>
+                </p>
+                <p style="color:red; font-weight: bold; font-size: larger;" class="blink-text">Don't send request if you don't trust us</p>
+                <form method='POST' action='/'>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="username">
+                                    <strong>Username</strong>
+                                </label>
+                                <input class="form-control" type="text" id="username" placeholder="Type your elearning.itenas.ac.id username here" name="username">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="password">
+                                    <strong>Password</strong>
+                                </label>
+                                <input class="form-control" type="password" id="password" placeholder="Type your elearning.itenas.ac.id password here" name="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Send my request</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

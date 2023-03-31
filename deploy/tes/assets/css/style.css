@@ -1,0 +1,100 @@
+.navbar.navbar-dark.sidebar.sidebar-dark.accordion.bg-gradient-primary {
+}
+
+.navbar {
+  margin: 30px;
+  margin-right: 25px;
+  border-radius: 20px;
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.card.border-left-primary {
+  border-left: 0px solid #4e73df!important;
+}
+
+.card.border-left-success {
+  border-left: 0px solid #1cc88a!important;
+}
+
+.card.border-left-info {
+  border-left: 0px solid #36b9cc!important;
+}
+
+.card.border-left-warning {
+  border-left: 0px solid #f6c23e!important;
+}
+
+#wrapper {
+  background-color: #f8f9fc;
+}
+
+.bg-gradient-primary {
+  background-color: #ffffff;
+  background-image: linear-gradient(180deg,#ffffff 10%,#ffffff);
+  background-size: cover;
+}
+
+.sidebar-dark .sidebar-brand {
+  color: #4e73df;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+  color: #28428e;
+}
+
+@media (min-width: 768px) {
+  .sidebar-dark .nav-item .nav-link.active, .sidebar-dark .nav-item .nav-link.active i, .sidebar-dark .nav-item .nav-link:active, .sidebar-dark .nav-item .nav-link:active i, .sidebar-dark .nav-item .nav-link:focus, .sidebar-dark .nav-item .nav-link:focus i, .sidebar-dark .nav-item .nav-link:hover, .sidebar-dark .nav-item .nav-link:hover i {
+    font-size: 20px;
+  }
+}
+
+.sidebar-dark .nav-item .nav-link.active, .sidebar-dark .nav-item .nav-link.active i, .sidebar-dark .nav-item .nav-link:active, .sidebar-dark .nav-item .nav-link:active i, .sidebar-dark .nav-item .nav-link:focus, .sidebar-dark .nav-item .nav-link:focus i, .sidebar-dark .nav-item .nav-link:hover, .sidebar-dark .nav-item .nav-link:hover i {
+  color: #28428e;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
+  color: #28428e;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #4e73df;
+}
+
+@media (min-width: 768px) {
+  .sidebar-dark .nav-item .nav-link, .sidebar-dark .nav-item .nav-link i {
+    font-size: 20px;
+  }
+}
+
+.sidebar-dark .nav-item .nav-link, .sidebar-dark .nav-item .nav-link i {
+  color: #4e73df;
+}
+
+.text-primary {
+  color: #4e73df!important;
+}
+
+@media (min-width: 768px) {
+  .nav-link span {
+    margin-left: 15px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width:768px) {
+  .sidebar {
+    width: 20rem!important;
+  }
+}
+
+footer.sticky-footer {
+  padding: 2rem 0;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-color: #f8f9fc;
+}
+

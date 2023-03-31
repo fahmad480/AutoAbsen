@@ -1,0 +1,73 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %} Schedule {% endblock %}
+{% block titlev2 %} Schedule {% endblock %}
+{% block row_content %}
+<!-- prettier-ignore -->
+<div class="row">
+    <div class="col-lg-12 col-xl-12">
+        <div class="card shadow mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="text-primary font-weight-bold m-0">What the f*** is this? Part 3</h6>
+            </div>
+            <div class="card-body">
+                <p>If you change this, <b>all colleger</b> who use this schedule will be affected by the changes you make, consider it carefully</p>
+                <form method="post" id="myself" style="display: block;">
+                    <div class="form-group">
+                        <label for="courseName">Course Name</label>
+                        <input type="text" value="{{data[1]}}" name="course" class="form-control" id="courseName" placeholder="Type course name correctly (example: Filsafat Kehewanan)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseAttendanceURL">Course Attendance URL</label>
+                        <input type="text" value="{{data[2]}}" name="url" class="form-control" id="courseAttendanceURL" placeholder="Type course attendance URL correctly (example: https://elearning.itenas.ac.id/mod/attendance/view.php?id=696969)" required>
+                        <small>How to get Attendance URL: right click on <b>Daftar Hadir KuliahAttendance</b> and <b>Copy Link Address</b> From your course</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="day">Day</label>
+                        <select class="form-control" id="day" name="day" required>
+                          <option value="senin" {{ 'selected' if data[3] == 'senin' else '' }}>Monday</option>
+                          <option value="selasa" {{ 'selected' if data[3] == 'selasa' else '' }}>Tuesday</option>
+                          <option value="rabu" {{ 'selected' if data[3] == 'rabu' else '' }}>Wednesday</option>
+                          <option value="kamis" {{ 'selected' if data[3] == 'kamis' else '' }}>Thursday</option>
+                          <option value="jumat" {{ 'selected' if data[3] == 'jumat' else '' }}>Friday</option>
+                          <option value="sabtu" {{ 'selected' if data[3] == 'sabtu' else '' }}>Saturday</option>
+                          <option value="minggu" {{ 'selected' if data[3] == 'minggu' else '' }}>Sunday</option>
+                        </select>
+                        <small style="display: none;" id='showthisdude'><b>Really?</b> you study on monday? play game dude, watching movie, anime, korean drama, rest your brain, you'r not a robot</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="courseAttendanceURL">Time</label>
+                      <input value="{{data[4]}}" type="time" class="form-control" id="courseAttendanceURL" name="time" min="00:00" max="24:00" step="3600" required>
+                      <small>Example : 08:00 AM, always use 00 for minute ( 12:00 AM = 00:00 ) so? 12:O0 PM = 12:00 in 24 hours format</small>
+                    </div>
+                    <div class="form-group"><button name="submit" value="myself" class="btn btn-primary btn-md" type="submit">Edit Please</button></div>
+                </form>
+                <!-- <form method="post" id="available" style="display: none;">
+                  <div class="form-group">
+                      <label for="course">Select Course (Id - Course Name - Day - Time)</label>
+                      <select class="form-control" id="course" name="course" required>
+                        {% for row in courselist %}
+                        <option value="{{row.0}}">{{row.0}} - {{row.1}} - {{row.3}} - {{row.4}}</option>
+                        {% endfor %}
+                      </select>
+                      <small>Want to know what course that match with your schedule? ask your friend from <b>course ID</b> from <b>Schedule</b> menu</small>
+                  </div>
+                  <div class="form-group"><button name="submit" value="available" class="btn btn-primary btn-md" type="submit">Add</button></div>
+              </form> -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block custom_css %} {% endblock %}
+{% block custom_js %}
+<script>
+    $("#day").on("change", function () {
+      console.log(this.value);
+      if (this.value == "minggu") {
+        $("#showthisdude").show();
+      } else {
+        $("#showthisdude").hide();
+      }
+    });
+</script>
+{% endblock %}

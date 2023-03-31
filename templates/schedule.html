@@ -1,0 +1,78 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %} Schedule {% endblock %}
+{% block titlev2 %} Schedule {% endblock %}
+{% block row_content %}
+<!-- prettier-ignore -->
+<div class="row">
+    <div class="col-lg-12 col-xl-12">
+        <div class="card shadow mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="text-primary font-weight-bold m-0">What the f*** is this?</h6>
+            </div>
+            <div class="card-body">
+                {% if danger %}
+                <div class="alert alert-danger mb-3 mt-1" role="alert">
+                    {{danger}}
+                </div>
+                {% endif %}
+                {% if request.args.get('success') %}
+                <div class="alert alert-success mb-3 mt-1" role="alert">
+                    {% if request.args.get('success') == '1' %}
+                    Your schedule has been deleted, all colleger can't use this schedule anymore
+                    {% elif request.args.get('success') == '2' %}
+                    Your schedule has been deleted
+                    {% elif request.args.get('success') == '3' %}
+                    Your new schedule has been added
+                    {% elif request.args.get('success') == '4' %}
+                    Your schedule has been edited, all colleger will follow this schedule too
+                    {% endif %}
+                </div>
+                {% endif %}
+                <a href="/schedule/add" class="btn btn-primary mb-4 mt-1">Add New Schedule</a>
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table my-0" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Course ID</th>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in schedule %}
+                            <tr>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>{{row[3]}}</td>
+                                <td>{{row[4]}}</td>
+                                <th>{% if row[5] == session['username'] %}
+                                    <a href="/schedule/delete?id={{row[6]}}" onclick="return confirm('You create this schedule, if you delete this schedule, all colleger who using this schedule will not be able to use it again, but they can create a new one or use another schedule that created by another colleger');" class="btn btn-danger mb-4 mt-1"><i class="fas fa-fire"></i></a>
+                                    <a href="/schedule/edit?id={{row[0]}}" class="btn btn-info mb-4 mt-1"><i class="fas fa-edit"></i></a></th>
+                                    {% else %}
+                                    <a href="/schedule/delete?id={{row[6]}}" onclick="return confirm('Are you sure want to remove this class from your schedule?');" class="btn btn-danger mb-4 mt-1"><i class="fas fa-trash"></i></a>
+                                    {% endif %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>Course ID</strong></td>
+                                <td><strong>Name</strong></td>
+                                <td><strong>URL</strong></td>
+                                <td><strong>Day</strong></td>
+                                <td><strong>Time</strong></td>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html style="background: transparent;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %} - Tukang Absen</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fonts/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fonts/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fonts/fontawesome5-overrides.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/timepicker.css')}}">
+    {% block custom_css %}
+    {% endblock %}
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start bg-gradient-primary accordion navbar-expand d-md-none d-lg-none d-xl-none fixed-bottom">
+            <ul class="navbar-nav mx-auto justify-content-center" id="accordionSidebar">
+                {% if 'username' not in session %}
+                <li class="nav-item"><a class="nav-link" href="/"><span><i class="fas fa-sign-in-alt"></i></span></a></li>
+                {% endif %}
+                {% if 'username' in session %}
+                <li class="nav-item mx-2"><a class="nav-link justify-content-center" href="/dashboard"><i class="fas fa-tachometer-alt fa-2x"></i></a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="/profile"><span><i class="fas fa-user fa-2x"></i></span></a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="/schedule"><span><i class="fas fa-table fa-2x"></i></span></a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="/discordhook"><span><i class="fab fa-discord fa-2x"></i></span></a></li>
+                {% if session['username'] == 'faraazap' %}
+                <li class="nav-item mx-2"><a class="nav-link" href="/accountlist"><span><i class="fas fa-users"></i></span></a></li>
+                {% endif %}
+                <li class="nav-item mx-2"><a class="nav-link" href="/logout"><span><i class="fas fa-sign-out-alt fa-2x"></i></span></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary d-none d-md-block">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-grin-tongue-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Tukang Absen</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                {% if 'username' in session %}
+                <center>
+                    <img class="rounded-circle mb-3 mt-4" src="{{ session['profile_picture'] }}" width="160" height="160"><br>
+                    <p class="profile_name mb-4">{{ session['name'] }}</p>
+                </center>
+                {% endif %}
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    {% if 'username' not in session %}
+                    <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+                    {% endif %}
+                    {% if 'username' in session %}
+                    <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/schedule"><i class="fas fa-table"></i><span>Schedule</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/discordhook"><i class="fab fa-discord"></i><span>Notification</span></a></li>
+                    {% if session['username'] == 'faraazap' %}
+                    <li class="nav-item"><a class="nav-link" href="/accountlist"><i class="fas fa-users"></i><span>Account List</span></a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" style="border-color: rgb(133, 135, 150);">
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4 mt-4">
+                        <h3 class="text-dark mb-0" style="font-weight: bolder;">{% block titlev2 %}{% endblock %}</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-6 mb-4">
+                            <div class="card shadow border-left-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Registered Colleger</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>{{colleger}}</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-users fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-6 mb-4">
+                            <div class="card shadow border-left-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Registered courses</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>{{courses}}</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-cubes fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% block row_content %}
+                    {% endblock %}
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright &copy; Tukang Absen 2021</span></div>
+                </div>
+            </footer>
+            <!-- </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a> -->
+        </div>
+        <script src="{{ url_for('static',filename='js/jquery.min.js')}}"></script>
+        <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{ url_for('static',filename='js/chart.min.js')}}"></script>
+        <script src="{{ url_for('static',filename='js/bs-init.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="{{ url_for('static',filename='js/theme.js')}}"></script>
+        {% block custom_js %}
+        {% endblock %}
+</body>
+
+</html>

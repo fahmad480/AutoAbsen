@@ -1,0 +1,55 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %} Discord Notification {% endblock %}
+{% block titlev2 %} Discord Notification {% endblock %}
+{% block row_content %}
+<!-- prettier-ignore -->
+<div class="row">
+  <div class="col-lg-12 col-xl-12">
+    <div class="card shadow mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h6 class="text-primary font-weight-bold m-0">Discord Notification</h6>
+      </div>
+      <div class="card-body">
+        {% if success %}
+        <div class="alert alert-success" role="alert">
+            {{success}}
+        </div>
+        {% endif %}
+        <p>So! you want to know what it is?<br>
+        Did you know what is Discord Webhook? Discord webhook is like a program/service to create simple chatbot (one side communication or chatbot can send a message, but the chatbot can receive your message), if you use discord webhook, you can know if this <b>Tukang Absen</b> is working or not.<br>
+        How to make discord webhook? simple, follow this video</p>
+        <center><iframe width="560" height="315" src="https://www.youtube.com/embed/zxi926qhP7w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+        <form method="post">
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="username">
+                            <strong>Paste Discord Webhook URL</strong>
+                        </label>
+                        <input value="{{dhooks}}" placeholder="example: https://discord.com/api/webhooks/1234567890987654321/jksadBJasdiuy89Hohiu3q29hh9qr3IOhiuqwb4567GHJKasdpiosuLJKHDiouaesg12" class="form-control" type="text" id="url" name="url">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group"><button class="btn btn-primary" type="submit">Smash it!</button></div>
+            <p><b>Fun fact: </b>you can use the <b>same</b> discord webhook url with your friend</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block custom_js %}
+<script>
+  function showPass() {
+    var x = document.getElementById("password");
+    var y = document.getElementById("show-password");
+    if (x.type === "password") {
+      x.type = "text";
+      y.innerText = "Hide Password";
+    } else {
+      x.type = "password";
+      y.innerText = "Show Password";
+    }
+  }
+</script>
+{% endblock %}

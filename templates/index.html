@@ -1,0 +1,37 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %} Profile {% endblock %}
+{% block titlev2 %} Profile {% endblock %}
+{% block row_content %}
+<!-- prettier-ignore -->
+<div class="row">
+    <div class="col-lg-12 col-xl-12">
+        <div class="card shadow mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="text-primary font-weight-bold m-0">How To Use!</h6>
+            </div>
+            <div class="card-body">
+                <p>Hey, <b>{{ session['name'] }}</b> welcome to the club &#x1F44A;! if you see this text, you have been choosen as one of the candidates to be called by the faculty, just kidding &#x270C;<br>
+                    You already login right? but, did you know how to use it? Okay, read it calmly!</p>
+                <br>
+                <h3>How To Add Schedule</h3>
+                <p>1. Click/tap on <b>Schedule</b> menu<br>
+                2. You can see all your schedule there, and if you want to add new schedule just click/tap <b>Add New Schedule</b><br>
+                3. Fill all the required form, if you don't understand, there is sample/guide to help you &#x1F609;<br>
+                4. Done? click/tap submit button and it's done</p>
+                <br>
+                <h3>When This Robot Start Working?</h3>
+                <p>Well, depend on your schedule, monday 07 AM? yeah, robot start working, and you? <b>still sleep</b><br>
+                    This robot working for 24/7, not like you</p>
+                <br>
+                <h3>I Want Stop Using This Robot, Can I?</h3>
+                <p>Q: There is <b>Profile</b> menu, what that's for?<br>
+                    A: Just a bit information about your elearning account, and, if you want to stop using this robot, click/tap <b>Profile</b> menu, and click/tap <b>Let Me Out of Here</b>, simple right? don't worry, all your datas will be destroyed from database</p>
+                <br>
+                <h3>How Do I Know if The Robot has Attend My Schedule?</h3>
+                <p>You can check it by yourself, or, add discord webhook to <b>Notification</b> menu, there is an instruction how to add it</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

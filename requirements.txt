@@ -1,0 +1,7 @@
+dhooks==1.1.4
+beautifulsoup4==4.8.2
+lxml==4.5.2
+flask==1.1.2
+flask-mysqldb==0.2.0
+mysql-connector==2.2.9
+mysqlclient==2.0.3
